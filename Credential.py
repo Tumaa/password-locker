@@ -87,4 +87,5 @@ class Credential:
         '''
         find_credential = Credential.find_by_account_name(account_name)
         return pyperclip.copy(find_credential.password)
+    
             
