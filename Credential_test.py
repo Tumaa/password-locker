@@ -1,5 +1,7 @@
 import unittest
-from Credential import User
+from Credential import User, Credential
+
+
 
 
 class TestUser(unittest.TestCase):
@@ -25,6 +27,14 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
+        
+class TestCredential(unittest.TestCase):
+    
+        '''
+        test class to test credential object
+        '''
+    def test_confirm_login(self):  
+        '''
         
         
         

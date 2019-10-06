@@ -41,4 +41,9 @@ class Credential:
         self.username = username
         self. password = password
         
-    
+    def save_credential (self):
+        '''
+        amethod  to save uset object to user_list
+        '''
+        Credential.Credential_list.append(self)
+        
