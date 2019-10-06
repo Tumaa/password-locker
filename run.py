@@ -66,3 +66,46 @@ def main():
            print(" ")
            print(f'Your Password-Locker account lastname is : {lastname}  and password is: {(password)}')
 
+       elif short_code == 'L':
+           print("-"*40)
+           print(' ')
+           print('To login:')
+           lastname = input('Enter your Password-Locker username - ').strip()
+           password = str(input('Enter your password - '))
+           user_authenticated = authenticate_user(lastname,password)
+           if user_authenticated == lastname:
+               print(" ")
+               print(f'Welcome {lastname}. You have successfully logged in. Choose short code to continue')
+               print(' ')
+               while True:
+                   print("-"*40)
+                   print('Your credentials short codes: C-Create credential, D-Display Credentials, F-delete credentials account, P-Copy Password, X-Exit')
+                   short_code = input('Enter short code: ').lower().strip()
+                   print("-"*40)
+                   if short_code == 'X':
+                       print(" ")
+                       print(f'Goodbye {lastname}')
+                       break
+                   elif short_code == 'C':
+                       print(' ')
+                       print('Enter your credential account information:')
+                       lastname = input('Enter the account name - ').strip()
+                       password = input('Enter your username - ').strip()
+                       while True:
+                           print(' ')
+                           print("-"*40)
+                           print('Select option for entering a password:  E-Enter your own password, G-Generate a password ,X-Exit')
+                           passwrd_select = input('Enter an option: ').lower().strip()
+                           print("-"*40)
+                           if passwrd_select == 'E':
+                               print(" ")
+                               password = input('Enter your password: ').strip()
+                               break
+                           elif passwrd_select == 'G':
+                               password = generate_password()
+                               break
+                           elif passwrd_select == 'X':
+                               break
+                           
+if __name__ == "__main__":
+   main
