@@ -24,5 +24,21 @@ class Credential:
     Credential_list = []
     user_credential_list = []
     
-    
+    @classmethod
+    def confirm_login (cls,lastname, password):
+        '''
+        method for login the user
+        '''
+        for user in User.user_list:
+            if user.lastname == lastname and user.password == password:
+                current_user =user.lastname
+        return current_user
+    def __init__(self, account_name, username, password):
+        '''
+        method to define the properties for user object
+        '''
+        self.account_name = account_name
+        self.username = username
+        self. password = password
+        
     
