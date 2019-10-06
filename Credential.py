@@ -17,4 +17,12 @@ class User:
         '''
         User.user_list.append(self)
         
-        
+class Credential:
+    '''
+    class that defines the credential behaviours
+    '''
+    Credential_list = []
+    user_credential_list = []
+    
+    
+    
