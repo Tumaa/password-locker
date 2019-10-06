@@ -61,7 +61,7 @@ class Credential:
             if credential.username == username:
                 user_credential_list.append(credential)
         return user_credential_list   
-        
+
         
     def generate_password (self,size=5, char=string.ascii_lowercase+string.ascii_uppercase+string.digits):
             '''

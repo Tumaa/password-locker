@@ -35,7 +35,7 @@ def generate_password():
     '''
     password_generate = Credential.generate_password
     return password_generate
-def display_credentials(username):
+def display_credential(username):
     '''
     Function to display credentials
     '''
@@ -52,11 +52,11 @@ def main():
    while True:
        print(' ')
        print("-"*40)
-       print('Use these short codes: A-Create Password-Locker account,  L-Login, X-Exit')
+       print('Use these short codes: cr-Create Password-Locker account,  log-Login, ex-Exit')
        short_code = input('Enter short code here: ').lower().strip()
        if short_code == 'ex':
            break
-       elif short_code == 'A':
+       elif short_code == 'cr':
            print("-"*40)
            print(' ')
            print('To create a new account:')
@@ -66,7 +66,7 @@ def main():
            print(" ")
            print(f'Your Password-Locker account lastname is : {lastname}  and password is: {(password)}')
 
-       elif short_code == 'L':
+       elif short_code == 'log':
            print("-"*40)
            print(' ')
            print('To login:')
@@ -79,33 +79,70 @@ def main():
                print(' ')
                while True:
                    print("-"*40)
-                   print('Your credentials short codes: C-Create credential, D-Display Credentials, F-delete credentials account, P-Copy Password, X-Exit')
+                   print('Your credentials short codes: c-Create credential, d-Display Credentials, p-Copy Password, ex-Exit')
                    short_code = input('Enter short code: ').lower().strip()
                    print("-"*40)
-                   if short_code == 'X':
+                   if short_code == 'ex':
                        print(" ")
                        print(f'Goodbye {lastname}')
                        break
-                   elif short_code == 'C':
+                   elif short_code == 'c':
                        print(' ')
                        print('Enter your credential account information:')
-                       lastname = input('Enter the account name - ').strip()
-                       password = input('Enter your username - ').strip()
+                       account_name = input('Enter the account name - ').strip()
+                       username = input('Enter your username - ').strip()
+                       password = input('Enter your password - ').strip()
+
                        while True:
                            print(' ')
                            print("-"*40)
-                           print('Select option for entering a password:  E-Enter your own password, G-Generate a password ,X-Exit')
+                           print('Select option for entering a password:  e-Enter your own password, g-Generate a password ,ex-Exit')
                            passwrd_select = input('Enter an option: ').lower().strip()
                            print("-"*40)
-                           if passwrd_select == 'E':
+                           if passwrd_select == 'e':
                                print(" ")
                                password = input('Enter your password: ').strip()
                                break
-                           elif passwrd_select == 'G':
+                           elif passwrd_select == 'g':
                                password = generate_password()
                                break
-                           elif passwrd_select == 'X':
+                           elif passwrd_select == 'ex':
                                break
-                           
+                           else:
+                               print('Incorrect entry. Try again.')
+                       save_credential(create_credential(account_name,username,password))
+                       print(' ')
+                       print(f'Credential Created: Account Name: {account_name} - User name: {username} - Password: {password}')
+                       print(' ')
+                   elif short_code == 'd':
+                       print(' ')
+                       if display_credential(username):
+                           print('Your credential account list:')
+                           print(' ')
+                           for credential in display_credential(username):
+                               print(f'Account Name: {credential.account_name}-User Name: {credential.username}-Password: {credential.password}')
+                           print(' ')
+                       else:
+                           print(' ')
+                           print("No credential saved")
+                           print(' ')
+                   elif short_code == 'p':
+                       print(' ')
+                       chosen_account_name = input('Enter the account name for the credential password to copy: ')
+                       copy_credential(chosen_account_name)
+                       print('')
+                       print('Paste copied account_name password here:')
+                       copy = input()
+                   else:
+                       print('Incorrect entry.Try again.')
+           else:
+               print(' ')
+               print('Incorrect entry. Try again or Create an Account.')        
+       else:
+           print("-"*40)
+           print(' ')
+           print('Incorrect entry. Try again.')
+                
 if __name__ == "__main__":
-   main
+   main()
+
