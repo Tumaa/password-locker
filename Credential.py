@@ -25,7 +25,7 @@ class Credential:
     '''
     class that defines the credential behaviours
     '''
-    Credential_list = []
+    credential_list = []
     user_credential_list = []
     
     @classmethod
@@ -49,7 +49,7 @@ class Credential:
         '''
         amethod  to save uset object to user_list
         '''
-        Credential.Credential_list.append(self)
+        Credential.credential_list.append(self)
         
     @classmethod
     def display_credential(cls, username):
@@ -57,7 +57,7 @@ class Credential:
         function to diplay saved account
         '''
         user_credential_list = []
-        for  credential in cls.Credential_list:
+        for  credential in cls.credential_list:
             if credential.username == username:
                 user_credential_list.append(credential)
         return user_credential_list   
@@ -76,7 +76,7 @@ class Credential:
         '''
         Function that finds a credential based on the site_name
         '''
-        for credential in cls.Credential_list:
+        for credential in cls.credential_list:
             if credential.account_name ==  account_name:
                 return credential
                 
