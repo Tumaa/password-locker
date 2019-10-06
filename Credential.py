@@ -11,4 +11,9 @@ class User:
         self.lastname = lastname
         self.password = password
         
-    
+    def save_user (self):
+        '''
+        amethod  to save uset object to user_list
+        '''
+        User.user_list.append(self)
+        
