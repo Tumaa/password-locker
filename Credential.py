@@ -1,3 +1,6 @@
+import random 
+import string
+
 class User:
     '''
     class that will generate new instances of users.
@@ -47,3 +50,22 @@ class Credential:
         '''
         Credential.Credential_list.append(self)
         
+    @classmethod
+    def display_credential(cls, username):
+        '''
+        function to diplay saved account
+        '''
+        user_credential_list = []
+        for  credential in cls.Credential_list:
+            if credential.username == username:
+                user_credential_list.append(credential)
+        return user_credential_list   
+        
+        
+    def generate_password (self,size=5, char=string.ascii_lowercase+string.ascii_uppercase+string.digits):
+            '''
+            function to generate random password
+            
+            '''
+            password_generate = "".join(random.choice(char) for _ in range(size))
+            return password_generate

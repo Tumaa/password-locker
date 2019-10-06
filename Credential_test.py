@@ -56,8 +56,7 @@ def setUp(self):
           
 def test__init__(self):
         '''
-        test__init__ test case to test if the object is initialized properly
-        '''
+         '''
         self.assertEqual(self.new_credential.account_name,'facebook')
         self.assertEqual(self.new_credential.username,'tumaa')
         self.assertEqual(self.new_credential.password,'1234ali')
